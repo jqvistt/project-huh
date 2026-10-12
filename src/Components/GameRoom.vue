@@ -31,7 +31,10 @@ const startGame = () => {
   socket.emit('start-game', roomCode.value)
 }
 
-// Room State Manangement
+const kickPlayer = (playerId) => {
+  socket.emit('kick-player', { code: roomCode.value, playerId })
+}
+
 onMounted(() => {
   if (!roomCode.value) {
     errorMessage.value = 'NO ROOM CODE PROVIDED.'
@@ -49,6 +52,11 @@ onMounted(() => {
     quizTitle.value = roomData?.quizTitle || 'Quiz Lobby'
   })
 
+  socket.on('player-kicked', () => {
+    alert('You have been kicked from the lobby.')
+    router.push('/')
+  })
+
   socket.on('room-closed', (reason) => {
     alert('The host has left! Returning to the lobby.')
     router.push('/')
@@ -64,6 +72,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   socket.off('room-updated')
+  socket.off('player-kicked')
   socket.off('room-closed')
   socket.off('game-started')
 })
@@ -104,6 +113,14 @@ function disconnect() {
             <span v-if="player.id === currentSocketId" class="you-tag">(YOU)</span>
           </span>
           <span v-if="player.isHost" class="host-tag">HOST</span>
+          <button
+            v-if="isHost && !player.isHost"
+            class="kick-btn"
+            title="Kick player"
+            @click="kickPlayer(player.id)"
+          >
+            ✕
+          </button>
         </div>
       </div>
       <!--Buttons-->
@@ -281,6 +298,29 @@ function disconnect() {
   border: 1px solid #1a1a1a;
   padding: 2px 4px;
   margin-top: 4px;
+}
+
+.kick-btn {
+  margin-top: 6px;
+  background-color: #ff4747;
+  color: #ffffff;
+  border: 2px solid #1a1a1a;
+  box-shadow: 2px 2px 0px #1a1a1a;
+  font-weight: 900;
+  font-size: 0.75rem;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: transform 0.1s ease;
+}
+
+.kick-btn:hover {
+  background-color: #ff6666;
+  transform: translate(-1px, -1px);
 }
 
 .action-bar {

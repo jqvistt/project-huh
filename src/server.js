@@ -108,6 +108,16 @@ io.on('connection', socket => {
 
   socket.on('leave-room', code => handlePlayerLeave(code, socket.id))
 
+  socket.on('kick-player', ({ code, playerId }) => {
+    const room = rooms.get(code)
+    if (room && room.hostSocketId === socket.id && !room.started) {
+      if (playerId !== room.hostSocketId) {
+        io.to(playerId).emit('player-kicked')
+        handlePlayerLeave(code, playerId)
+      }
+    }
+  })
+
   // Host Starts the Game 
   socket.on('start-game', code => {
     const room = rooms.get(code)
