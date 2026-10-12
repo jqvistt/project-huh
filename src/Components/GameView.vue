@@ -45,7 +45,7 @@ const handleTimerTick = (time) => {
 
   // Play ticking sound when the timer turns red (<= 5s) during the question
   if (time <= 5 && gameStore.phase === 'question' && tickingAudio.paused) {
-    tickingAudio.play().catch(() => {})
+    tickingAudio.play().catch(() => { })
   }
 }
 
@@ -66,7 +66,7 @@ const handleShowScoreboard = ({ isGameOver: gameOver, correctIndex }) => {
   stopAudio(tickingAudio)
   // Alarm clock sound when swapping to scoreboard
   alarmAudio.currentTime = 0
-  alarmAudio.play().catch(() => {})
+  alarmAudio.play().catch(() => { })
 
   revealedCorrectIndex.value = correctIndex
   isGameOver.value = gameOver
