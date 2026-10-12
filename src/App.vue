@@ -221,21 +221,26 @@ onUnmounted(() => {
 </template>
 
 <style>
-body {
+html, body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 </style>
 
 <style scoped>
 .app-container {
-  overflow: hidden;
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   background-color: #f5f5f5;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .content-wrapper {
@@ -245,14 +250,16 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .route-component {
   width: 100%;
+  box-sizing: border-box;
 }
 
 .scrolling-bg {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;

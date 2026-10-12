@@ -370,4 +370,37 @@ textarea.prompt-input {
   transform: translate(-4px, -4px);
   box-shadow: 6px 6px 0px #1a1a1a;
 }
+
+@media (max-width: 550px) {
+  .quiz-creator-container {
+    padding: 1rem 0.75rem;
+    min-height: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .creator-card {
+    padding: 1.5rem 1.25rem;
+    box-shadow: 4px 4px 0px #1a1a1a;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  .prompt-input {
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 14px 20px;
+    font-size: 1rem;
+  }
+}
 </style>

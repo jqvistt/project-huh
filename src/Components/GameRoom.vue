@@ -331,4 +331,46 @@ function disconnect() {
 .error-container h2 {
   color: #ff4747;
 }
+
+@media (max-width: 550px) {
+  .gameroom-container {
+    padding: 1rem 0.75rem;
+    min-height: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .code-badge {
+    padding: 8px 16px;
+  }
+
+  .code-value {
+    font-size: 1.5rem;
+  }
+
+  .gameroom-card {
+    padding: 1.5rem 1rem;
+    box-shadow: 4px 4px 0px #1a1a1a;
+  }
+
+  .players-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.6rem;
+  }
+
+  .action-bar {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 14px 16px;
+  }
+}
 </style>

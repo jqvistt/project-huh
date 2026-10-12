@@ -492,21 +492,64 @@ const leaveGame = () => {
 }
 
 @media (max-width: 600px) {
-  .options-grid {
-    grid-template-columns: 1fr;
+  .game-container {
+    padding: 1rem 0.75rem;
+    min-height: auto;
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
   }
 
   .header h1 {
-    font-size: 2rem;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .game-card {
+    padding: 1.5rem 1rem;
+    box-shadow: 4px 4px 0px #1a1a1a;
+  }
+
+  .close-btn {
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .progress-bar {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .timer-badge {
+    padding: 2px 8px;
+    font-size: 0.9rem;
   }
 
   .question-text {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .options-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 
   .btn {
-    padding: 15px;
-    font-size: 1.1rem;
+    padding: 14px;
+    font-size: 1rem;
+  }
+
+  .score-display {
+    font-size: 2.5rem;
+  }
+
+  .round-title {
+    font-size: 1.6rem;
   }
 }
 </style>

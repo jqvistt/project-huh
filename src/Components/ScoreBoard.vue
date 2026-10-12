@@ -119,17 +119,23 @@ h2 {
 }
 
 @media (max-width: 500px) {
+  .scoreboard-container {
+    padding: 0.5rem 0;
+  }
+
   .scoreboard-card {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1rem;
+    box-shadow: 4px 4px 0px #1a1a1a;
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
   }
 
   .player-item {
     font-size: 1rem;
-    padding: 12px 15px;
+    padding: 10px 12px;
   }
 }
 </style>
